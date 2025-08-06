@@ -177,6 +177,58 @@ span {
     background: var(--second-bg-color);
 }
 
+.contact-details {
+    margin-top: 30px;
+    max-width: 100%;
+  }
+  
+  .contact-details h3 {
+    text-decoration: underline;
+    font-size: 18px;
+    margin-bottom: 12px;
+    color:  #c0c0c0;
+  }
+  
+  .contact-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .contact-details li {
+    font-size: 14px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .contact-details .icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+  
+  .contact-details .gmail-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+  
+  .contact-details a {
+    color: #ccc;
+    font-size: 14px;
+    text-decoration: none;
+    word-break: break-word;
+  }
+  
+  .contact-details a:hover {
+    color: #2a9d8f;
+    text-decoration: none;
+  }    
+
 .about-img img {
     width: 35vw;
 }
@@ -200,40 +252,47 @@ span {
     margin: 2rem 0 3rem;
 }
 
-.skills-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 30px;
-  padding: 0;
-  list-style: none;
-}
-
-.skills-list li {
-  background-color: var(--second-bg-color);
-  padding: 18px 30px;
-  font-size: 20px;
-  font-weight: 500;
-  color: #fff;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s, background-color 0.3s;
-  cursor: default;
-}
-
-.skills-list li:hover {
-  transform: scale(1.05);
-  background-color: #00bcd4;
-  color: #000;
-}
-
-.skills-list i {
-  font-size: 24px;
-}
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+    padding: 0;
+    text-align: center;
+  }
+  
+  .skills-grid div {
+    background: var(--second-bg-color);
+    padding: 15px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, background 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .skills-grid div:hover {
+    transform: translateY(-5px);
+    background: var(--main-color);
+  }
+  
+  .skills-grid div:hover span {
+    color: #000;
+  }  
+  
+  .skills-grid i,
+  .skills-grid span {
+    display: block;
+    font-size: 28px;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  
+  .skills-grid span {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ccc;
+    margin-top: 6px;
+    display: block;
+  }
 
 .services h2{
     margin-bottom: 5rem;
