@@ -54,6 +54,17 @@ section {
     border-bottom: .1rem solid rgba(0, 0, 0, .2);
 }
 
+h1 {
+    display: inline-block;
+    animation: fadePulse 3s ease-in-out infinite;
+}
+
+@keyframes fadePulse {
+    0% { opacity: 0.5;}
+    50% { opacity: 1;}
+    100% { opacity: 0.5;}
+}
+
 .logo {
     font-size: 2.5rem;
     color: var(--text-color);
@@ -62,16 +73,50 @@ section {
 }
 
 .navbar a {
-font-size: 1.7rem;
-color: var(--text-color);
-margin-left: 4rem;
-transform: 0.3s;
-}
+    font-size: 1.7rem;
+    color: var(--text-color);
+    margin-left: 4rem;
+    transform: 0.3s;
+    }
+    
+  .nav-link {
+    position: relative;
+    text-decoration: none;
+    color: #ccc;
+    font-weight: 500;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+  }
+  
+  /* Underline animation */
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0%;
+    height: 2px;
+    background-color: var(--main-color);
+    transition: width 0.3s ease;
+  }
+  
+  .nav-link:hover::after {
+    width: 100%;
+  }
+  
+  /* Active section stays underlined */
+  .nav-link.active::after {
+    width: 100%;
+  }
+  
+  .nav-link.active {
+    color: var(--main-color);
+  }  
 
 .navbar a:hover,
 .navbar a.active {
     color: var(--main-color);
-}
+} 
 
 #menu-icon {
     font-size: 3.6rem;
@@ -216,6 +261,20 @@ span {
     object-fit: contain;
     flex-shrink: 0;
   }
+
+  .gmail-icon {
+    margin-top: 0 !important;
+  }
+
+  .contact-item {
+    color: #fff !important;
+    text-decoration: none !important;
+  }
+
+  .contact-item:hover {
+    color: skyblue !important;
+    text-decoration: none;
+  }
   
   .contact-details a {
     color: #ccc;
@@ -229,7 +288,7 @@ span {
     text-decoration: none;
   }    
 
-.about-img img {
+.about-image img {
     width: 35vw;
 }
 
@@ -299,7 +358,7 @@ span {
 }
 
 .services-container {
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
@@ -413,9 +472,23 @@ span {
     color: var(--second-bg-color);
 }
 
-.contact h2 {
+.contact h3 {
     margin-bottom: 3rem;
 }
+
+.say-hello {
+    text-align: center;
+    text-decoration: underline;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: fff;
+  }  
+  
+.contact p {
+    font-size: 14px;
+    color: #ccc;
+    line-height: 1.6;
+  }  
 
 .contact form {
     max-width: 70rem;
@@ -561,6 +634,14 @@ section {
     opacity: 0;
     transform: translateX(20px);
 }
+.nav-link.active::after {
+    width: 35%;
+  }
+
+  .nav-link:hover::after {
+    width: 35%;
+  }
+
 .navbar a:nth-child(1) { animation-delay: 0.1s; }
 .navbar a:nth-child(2) { animation-delay: 0.4s; }
 .navbar a:nth-child(3) { animation-delay: 0.6s; }
@@ -588,7 +669,7 @@ section {
         flex-direction: column-reverse;
     }
 
-    .about img {
+    .about image {
         width: 70vw;
         margin-top: 4rem;
     }
