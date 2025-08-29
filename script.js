@@ -84,11 +84,17 @@ const typed = new Typed(".multiple-text", {
   loop: true
 });
 
+/*================contact form=============*/
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("contact-form");
+  const submitBtn = form.querySelector(".btn");
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
+
+    // Disable button + show spinner
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = `Sending <div class="spinner"></div>`;
 
     const formData = {
       name: form.name.value,
@@ -106,14 +112,17 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   
       const result = await response.json();
-      
       showToast(result.message || "✅ Message Sent Successfully!");
       form.reset();
-  
     } catch (err) {
       console.error(err);
       showToast("❌ Error sending message. Try again.");
+    } finally {
+      // Re-enable button after request finishes
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = `Send Message`;
     }
+
     function showToast(message) {
       const toast = document.getElementById("toast");
       toast.textContent = message;

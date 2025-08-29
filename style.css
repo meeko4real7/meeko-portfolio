@@ -198,7 +198,7 @@ span {
 }
 
 .btn {
-    display: inline-block;
+    display: inline-flex;
     padding: 1rem 2.8rem;
     background: var(--main-color);
     border-radius: 4rem;
@@ -208,7 +208,37 @@ span {
     letter-spacing: .1rem;
     font-weight: 600;
     transition: .5s ease;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
 }
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  
+
+.spinner {
+    border: 3px solid rgba(255, 255, 255, 0.3);  /* lighter background ring */
+    border-top: 3px solid #fff;                  /* top ring visible */
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    animation: spin 1s linear infinite;
+  }
+  
+  /* Hide spinner initially */
+  .hidden {
+    display: none;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
 
 .btn:hover {
     box-shadow: none;
